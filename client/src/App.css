@@ -1,0 +1,242 @@
+/* src/App.css
+
+.container {
+  margin-top: 50px;
+}
+
+.text-center h1 {
+  padding: 20px;
+  color: #343a40;
+}
+
+.card {
+  margin: 20px 0;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.card-text {
+  color: #6c757d;
+} */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+body {
+  background: radial-gradient(circle, #a3d5e9, #81b8f0);
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.text-center h1 {
+  padding: 20px;
+  color: #343a40;
+} */
+/* 
+.card {
+  margin: 20px 0;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, max-height 0.2s ease-in-out;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  max-height: 600px; 
+}
+
+.card-body {
+  display: none;
+}
+
+.card:hover .card-body {
+  display: block;
+}
+
+.card-body-hidden {
+  padding: 15px;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.card:hover .card-body-hidden {
+  opacity: 1;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.text-center h1 {
+  padding: 20px;
+  color: #343a40;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.card {
+  margin: 20px 0;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, max-height 0.2s ease-in-out;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  max-height: 600px; 
+}
+
+.card-body {
+  display: none;
+}
+
+.card:hover .card-body {
+  display: block;
+}
+
+.card-body-hidden {
+  padding: 15px;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.card:hover .card-body-hidden {
+  opacity: 1;
+} */
+/* src/App.css */
+
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+/* Apply the radial gradient background to the body */
+body {
+  /* background: radial-gradient(circle, #87ceeb, #4b9ff4); */
+  /* background: url("../public/images/background.png") no-repeat fixed; */
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  /* overflow: hidden; */
+  background-color: #afd0f1;
+  /* background-color: #a1a5a9; */
+}
+
+.container {
+  margin-top: 35px;
+  min-height: fit-content;
+}
+
+.text-center h1 {
+  padding: 10px;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* letter-spacing: 1px; */
+}
+
+.nav-tabs {
+  position: sticky;
+  background-color: #1976d2; /* Dark background */
+  height: 3.2rem;
+}
+
+.nav-item {
+  margin: 4px 17px;
+}
+
+.nav-item:active {
+  border: 2px solid #ccc;
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 20px;
+  padding: -10.5rem 1rem;
+}
+
+.nav-link:hover {
+  color: #ccc !important;
+}
+
+.card {
+  margin: 20px 0;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, max-height 0.2s ease-in-out;
+  max-height: 300px;
+  overflow: hidden;
+  background-color: #d7dde5;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  max-height: 600px;
+}
+
+.card-body {
+  display: none;
+}
+
+.card:hover .card-body {
+  display: block;
+}
+
+.card-body-hidden {
+  padding: 15px;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.card:hover .card-body-hidden {
+  opacity: 1;
+}
+
+.inp {
+  width: 350px;
+  background-color: #d7dde5;
+}
+
+.myForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .alignBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+} */
