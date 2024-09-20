@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const crypto = require("crypto");
 const { type } = require("os");
 
-// const validateRollNo = function (value) {
-//   const rollNoPattern =
-//     /^21B81A(05|12|33|66|04|02|67|01|03|62|10)([0-9]{2}|[A-Z][1-9])$/i;
-//   return rollNoPattern.test(value);
-// };
+const validateRollNo = function (value) {
+  const rollNoPattern =
+    /^21B81A(05|12|33|66|04|02|67|01|03|62|10)([0-9]{2}|[A-Z][1-9])$/i;
+  return rollNoPattern.test(value);
+};
 
 // User Schema
 const userSchema = new mongoose.Schema(
@@ -43,12 +43,12 @@ const userSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    // rollNo: {
-    //   type: String,
-    //   required: true,
-    //   trim: true,
-    //   validate: [validateRollNo, "Invalid roll number format"],
-    // },
+    rollNo: {
+      type: String,
+      required: true,
+      trim: true,
+      validate: [validateRollNo, "Invalid roll number format"],
+    },
   },
   { timestamps: true }
 );

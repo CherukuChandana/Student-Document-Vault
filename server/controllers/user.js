@@ -80,115 +80,6 @@ const storage = multer.diskStorage({
   },
 });
 const up = multer({ storage: storage });
-// exports.upload = async (req, res) => {
-//   up.single("file")(req, res, async function (err) {
-//     if (err) {
-//       return res.status(500).json({ error: "File upload failed" });
-//     }
-//     // console.log("@@@@@@@@@@@@@@@@@@@@@@");
-//     // console.log(req.body.label);
-//     // console.log("@@@@@@@@@@@@@@@@@@@@@@");
-//     const fileName = req.file.originalname;
-//     const user = JSON.parse(req.body.user);
-//     const label = req.body.label;
-
-//     // try {
-//     //   const foundUser = await User.findOne({ email: user.email }).exec();
-
-//     //   if (!foundUser) {
-//     //     return res.status(404).json({ error: "User not found" });
-//     //   }
-//     //   console.log(foundUser.files.length == 0);
-//     //   flag = false;
-//     //   if (foundUser.files.length !== 0) {
-//     //     foundUser.files.forEach((file) => {
-//     //       if (!flag && file.label === label) {
-//     //         file.fileName = fileName;
-//     //         console.log(file);
-//     //         flag = true;
-//     //       }
-//     //     });
-//     //     if (!flag) {
-//     //       foundUser.files.push({ label, fileName });
-//     //     }
-//     //   } else {
-//     //     console.log("empty");
-//     //     foundUser.files.push({ label, fileName });
-//     //     console.log(foundUser.files);
-//     //   }
-
-//     //   foundUser.save().then(() => console.log("saved"));
-//     //   // console.log("saved ", updatedUser);
-
-//     //   // return res.status(200).json({
-//     //   //   message: "File uploaded successfully",
-//     //   //   // files: updatedUser.files,
-//     //   // });
-
-//     try {
-//       return User.findOneAndUpdate({ email: user.email }).then((user) => {
-//         const files = user.files;
-
-//         console.log(">>>>>>>>>>>>>>>>>>>>.....");
-//         flag = false;
-//         if (user.files.length !== 0) {
-//           user.files.forEach((file) => {
-//             if (!flag && file.label === label) {
-//               file.fileName = fileName;
-//               console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-//               console.log(user);
-//               console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-//               console.log("label: " + label);
-//               console.log(user.files[0].label);
-//               // user.files[0].label = fileName;
-//               console.log(file);
-//               flag = true;
-//             }
-//           });
-//           if (!flag) {
-//             user.files.push({ label, fileName });
-//           }
-//         } else {
-//           console.log("empty");
-//           user.files.push({ label, fileName });
-//           // console.log(user.files);
-//         }
-
-//         user.save().then(() => console.log("saved"));
-//       });
-//     } catch (err) {
-//       console.log(err);
-//       return res.status(500).json({ error: "Something went wrong" });
-//     }
-
-//     // try {
-//     //   await User.findOne({ email: user.email })
-//     //     .exec()
-//     //     .then((foundUser) => {
-//     //       if (!foundUser) {
-//     //         return res.status(404).json({ error: "User not found" });
-//     //       }
-//     //       console.log(foundUser);
-//     //       foundUser.files.forEach((file) => {
-//     //         // console.log(file);
-//     //         if (file.label === label) file.fileName = fileName;
-//     //         // console.log(file);
-//     //       });
-//     //       console.log(foundUser);
-//     //       foundUser.save().then((updatedUser) => {
-//     //         console.log("saved ", updatedUser);
-//     //       });
-//     //       // return res.status(200).json({
-//     //       //   message: "File uploaded successfully",
-//     //       //   // files: updatedUser.files,
-//     //       // });
-//     //     });
-//     // } catch (err) {
-//     //   console.log(err);
-//     //   return res.status(500).json({ error: "Something went wrong" });
-//     // }
-//   });
-// };
 
 exports.upload = async (req, res) => {
   up.single("file")(req, res, async function (err) {
@@ -243,13 +134,24 @@ exports.getFiles = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    // console.log(foundUser);
-    // console.log("===========================================");
-    // console.log(foundUser.files);
-
     return res.status(200).json({ files: foundUser.files });
   } catch (error) {
     console.error("Error fetching files:", error);
-    // return res.status(500).json({ error: "Something went wrong" });
+  }
+};
+
+exports.getData = async (req, res) => {
+  try {
+    const foundUser = await User.find({ role: "student" }).exec();
+    console.log("############################################");
+    console.log(foundUser);
+    console.log("############################################");
+    if (!foundUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    return res.status(200).json({ users: foundUser });
+  } catch (error) {
+    console.error("Error fetching Users:", error);
   }
 };

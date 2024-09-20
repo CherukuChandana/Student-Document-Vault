@@ -8,6 +8,7 @@ require("dotenv").config();
 const transporter = nodemailer.createTransport({
   host: "smtp-mail.outlook.com",
   port: 587,
+  secure: false,
   tls: {
     ciphers: "SSLv3",
     rejectUnauthorized: false,
@@ -100,7 +101,11 @@ exports.accountActivation = (req, res) => {
           });
         }
         const { name, email, password } = jwt.decode(token);
-        const user = new User({ name, email, password });
+        const rollNo = email.substring(0, 10);
+        // console.log("######################################");
+        // console.log(rollNo);
+        // console.log("######################################");
+        const user = new User({ name, email, password, rollNo });
 
         const savedUser = user
           .save()
@@ -313,11 +318,3 @@ exports.resetPassword = (req, res) => {
     );
   }
 };
-// exports.upload = (res) => {
-//   // console.log("uploading");
-//   return "success";
-//   // const userId = req.params.id;
-//   // console.log(req);
-//   // const email = req.email;
-//   // console.log(email);
-// };

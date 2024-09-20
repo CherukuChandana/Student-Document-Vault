@@ -11,6 +11,7 @@ import AdminRoute from "./auth/AdminRoute";
 import Forgot from "./auth/ForgotPwd";
 import Reset from "./auth/ResetPwd";
 import Dashboard from "./core/Dashboard";
+import MuiTable from "./core/AdminDashboard";
 // import InputFileUpload from "./core/InputFileUpload";
 
 const MyRoutes = () => {
@@ -41,6 +42,7 @@ const MyRoutes = () => {
         <Route path="/auth/password/forgot" exact element={<Forgot />} />
         <Route path="/auth/password/reset/:token" exact element={<Reset />} />
         <Route path="/dashboard" exact element={<Dashboard />} />
+        <Route path="/admindashboard" exact element={<MuiTable />} />
       </Routes>
     </BrowserRouter>
   );
