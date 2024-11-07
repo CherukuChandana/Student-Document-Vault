@@ -1,5 +1,4 @@
 import cookie from "js-cookie";
-// const cookie = require("js-cookie");
 // set in cookie
 export const setCookie = (key, value) => {
   if (window !== undefined) cookie.set(key, value, { expires: 1 });
@@ -40,7 +39,6 @@ export const isAuth = () => {
     if (cookieChecked) {
       const user = localStorage.getItem("user");
       if (user) {
-        // console.log(user);
         return JSON.parse(user);
       } else {
         return false;
@@ -64,5 +62,3 @@ export const updateUser = (response, next) => {
   }
   next();
 };
-
-// module.exports();

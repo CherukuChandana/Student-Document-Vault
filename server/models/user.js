@@ -9,7 +9,6 @@ const validateRollNo = function (value) {
   return rollNoPattern.test(value);
 };
 
-// User Schema
 const userSchema = new mongoose.Schema(
   {
     name: {

@@ -17,7 +17,6 @@ import {
   CloudDownload as CloudDownloadIcon,
   Search as SearchIcon,
 } from "@mui/icons-material";
-// import { getData } from "../../../server/controllers/user";
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -124,118 +123,6 @@ const createData = (
   };
 };
 
-// const data = [
-//   //   createData(
-//   //     "21B81A1201",
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true
-//   //   ),
-//   //   createData(
-//   //     "21B81A1202",
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false
-//   //   ),
-//   //   createData(
-//   //     "21B81A1203",
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false
-//   //   ),
-//   //   createData(
-//   //     "21B81A1204",
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false
-//   //   ),
-//   //   createData(
-//   //     "21B81A1205",
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false
-//   //   ),
-//   //   createData(
-//   //     "21B81A1206",
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     true,
-//   //     true,
-//   //     false,
-//   //     true,
-//   //     false
-//   //   ),
-//   //   // Add remaining rows as needed...
-// ];
-
 const labels = [
   "Aadhar",
   "PAN",
@@ -258,7 +145,6 @@ const MuiTable = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [users, setUsers] = useState([]);
   let [filteredData, setFilteredData] = useState([]);
-  // let [filenames, setFileNames] = useState([]);
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -286,44 +172,24 @@ const MuiTable = () => {
         myLabels.push(file.label);
         fileNames.push(file.fileName);
       });
-      // setFileNames([...fileNames]);
-      // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      // console.log(fileNames);
-      // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       labels.forEach((label) => {
         if (myLabels.includes(label)) {
           labls = { ...labls, [label]: true };
         }
       });
-      // users.push({ rollNo: rollNo, myFiles: labls });
-      // users.push({ rollNo: rollNo, myFiles: labls, filenames: fileNames });
       users.push({ rollNo: rollNo, myFiles: files, labls: labls });
       setUsers([...users]);
       setFilteredData([...users]);
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      console.log(users);
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-      // users.map((row, index) => {
-      //   console.log(row);
-      //   console.log(".............................");
-      //   const ind = row.myFiles.find((file) => file.label === "Resume");
-      //   console.log(ind);
-      //   console.log(".............................");
-      // });
     });
-
-    // console.log(filteredData);
   };
 
-  // const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(0);
-  const rowsPerPage = 10; // Number of rows per page
+  const rowsPerPage = 10;
 
   const handleSearchChange = (event) => {
     console.log(event);
     setSearchQuery(event.target.value);
-    setPage(0); // Reset page when search query changes
+    setPage(0);
     console.log(searchQuery);
     filteredData = users.filter((row) => {
       console.log(row);
@@ -333,13 +199,6 @@ const MuiTable = () => {
     setFilteredData([...filteredData]);
     console.log(filteredData);
   };
-
-  // const filteredData = users.filter((row) => {
-  //   console.log(row);
-  //   return row.rollNumber.toLowerCase().includes(searchQuery.toLowerCase());
-  // });
-
-  // console.log(filteredData);
 
   const totalPages = Math.ceil(users.length / rowsPerPage);
 
@@ -352,14 +211,6 @@ const MuiTable = () => {
   };
 
   const getFile = async (event) => {
-    console.log("..........................");
-    console.log(event);
-    console.log("..........................");
-    let user;
-    // if (isAuth()) {
-    //   user = isAuth();
-    // }
-    console.log(user);
     window.open(`http://localhost:8000/files/${event}`, "_blank", "noreferer");
   };
   const renderCellContent = (row, label, fileUploaded) => {

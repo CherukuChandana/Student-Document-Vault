@@ -5,8 +5,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { authenticate, isAuth } from "./helpers";
-// import App from "../App";
-// import Google from "./LoginWithGoogle";
 
 const Signin = () => {
   const [values, setValues] = useState({

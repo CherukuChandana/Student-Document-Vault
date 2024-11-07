@@ -5,11 +5,18 @@ import "./App.css";
 const App = () => {
   return (
     <Layout>
-      {/* <div className="background"> */}
       <div className="container mt-5 fixed">
         <div className="text-center">
-          <h1 className="p-5 fixed">STUDENT DOCUMENT VAULT</h1>
-          {/* <hr /> */}
+          <h1 className="p-5 fixed heading">STUDENT DOCUMENT VAULT</h1>
+        </div>
+        <div className="intro">
+          Welcome! <br></br>Your one-stop solution for securely managing and
+          tracking all your academic and professional documents. Designed to
+          streamline your experience, our platform offers easy document upload,
+          real-time verification, and status tracking, ensuring you have your
+          important files at your fingertips. Stay organized and prepared for
+          your placements with the Student Document Vault, where managing your
+          documents has never been easier!
         </div>
         <div className="row">
           <div className="col-md-4">
@@ -74,7 +81,6 @@ const App = () => {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </Layout>
   );
 };

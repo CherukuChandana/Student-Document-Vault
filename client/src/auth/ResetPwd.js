@@ -52,7 +52,6 @@ const Reset = () => {
   const resetPasswordForm = () => (
     <form>
       <div className="form-group">
-        {/* <label className="text-muted">Email</label> */}
         <input
           onChange={handleChange}
           value={newPassword}

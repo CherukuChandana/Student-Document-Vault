@@ -93,7 +93,7 @@ exports.upload = async (req, res) => {
 
     try {
       const foundUser = await User.findOne({ email: user.email }).exec();
-
+      console.log(foundUser);
       if (!foundUser) {
         return res.status(404).json({ error: "User not found" });
       }
@@ -143,13 +143,9 @@ exports.getFiles = async (req, res) => {
 exports.getData = async (req, res) => {
   try {
     const foundUser = await User.find({ role: "student" }).exec();
-    console.log("############################################");
-    console.log(foundUser);
-    console.log("############################################");
     if (!foundUser) {
       return res.status(404).json({ error: "User not found" });
     }
-
     return res.status(200).json({ users: foundUser });
   } catch (error) {
     console.error("Error fetching Users:", error);

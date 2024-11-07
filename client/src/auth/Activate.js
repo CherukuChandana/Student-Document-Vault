@@ -10,15 +10,10 @@ const Activate = () => {
 
   const [values, setValues] = useState({
     name: "",
-    // token: '',
     show: true,
   });
 
   useEffect(() => {
-    // console.log("use effect invoked");
-    // console.log(token);
-    // let token = match.params.token;
-    // console.log(token);
     let { name } = jwtDecode(token);
     if (token) {
       setValues({ ...values, name, token });
@@ -45,7 +40,6 @@ const Activate = () => {
       });
   };
 
-  // const {name} = values;
   const { name } = values;
 
   const activationLink = () => (

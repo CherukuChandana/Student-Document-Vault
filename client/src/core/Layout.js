@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { isAuth, signout } from "../auth/helpers";
-// import {}
 const Layout = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();

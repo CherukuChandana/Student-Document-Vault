@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Layout from "../core/Layout";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -97,14 +97,14 @@ const Signup = () => {
         <h1 className="p-5 text-center">Signup</h1>
         {signupForm()}
         <br />
-        <div className="myForm">
+        {/* <div className="myForm">
           <Link
             to={"/auth/password/forgot"}
             className="btn btn-sm btn-outline-danger"
           >
             Forgot Password
           </Link>
-        </div>
+        </div> */}
       </div>
     </Layout>
   );

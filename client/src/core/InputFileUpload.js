@@ -4,15 +4,12 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-// import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import axios from "axios";
 import { isAuth } from "../auth/helpers";
 import { useState, useEffect } from "react";
 
-// const express = require("express");
-// const router = express.Router();
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
   clipPath: "inset(50%)",
@@ -56,21 +53,19 @@ export default function InputFileUpload({ onChange, label }) {
   }, [email, label]);
 
   const handleFileChange = (event) => {
-    // console.log(event);
+    console.log(event);
     const selectedFile = event.target.files[0];
+    console.log(selectedFile);
+
     if (selectedFile) {
       const fileExtension = selectedFile.name.split(".").pop().toLowerCase();
-      console.log(fileExtension);
       if (fileExtension !== "pdf") {
         alert("Only PDF files are allowed.");
-      }
-    } else {
-      console.log(selectedFile);
-      if (selectedFile) {
+      } else {
         setFile(selectedFile);
-        // console.log(file);
         uploadFile(selectedFile);
       }
+    } else {
     }
   };
   const uploadFile = async (file) => {
@@ -84,7 +79,6 @@ export default function InputFileUpload({ onChange, label }) {
     }
     formData.append("label", label);
     formData.append("user", JSON.stringify(user));
-    // console.log(formData);
     await axios({
       method: "POST",
       url: `${process.env.REACT_APP_API}/upload`,
@@ -102,9 +96,7 @@ export default function InputFileUpload({ onChange, label }) {
   };
 
   const getFile = async (event) => {
-    console.log("..........................");
     console.log(event);
-    console.log("..........................");
     let user;
     if (isAuth()) {
       user = isAuth();
@@ -156,7 +148,6 @@ export default function InputFileUpload({ onChange, label }) {
           >
             <VisibilityIcon />
           </IconButton>
-          {/* </Button> */}
         </Box>
       )}
       <Button
@@ -173,7 +164,7 @@ export default function InputFileUpload({ onChange, label }) {
         {file ? "Re-upload" : "Upload file"}
         <VisuallyHiddenInput
           type="file"
-          accept="application/pdf"
+          // accept="application/pdf"
           onChange={handleFileChange}
         />
       </Button>

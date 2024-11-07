@@ -87,13 +87,13 @@ const Admin = () => {
   };
 
   const updateForm = () => (
-    <form>
+    <form className="myForm">
       <div className="form-group">
         <label className="text-muted">Role</label>
         <input
           defaultValue={role}
           type="text"
-          className="form-control"
+          className="form-control inp"
           disabled
         />
       </div>
@@ -103,7 +103,7 @@ const Admin = () => {
           onChange={handleChange("name")}
           value={name}
           type="text"
-          className="form-control"
+          className="form-control inp"
         />
       </div>
 
@@ -112,7 +112,7 @@ const Admin = () => {
         <input
           defaultValue={email}
           type="email"
-          className="form-control"
+          className="form-control inp"
           disabled
         />
       </div>
@@ -123,7 +123,7 @@ const Admin = () => {
           onChange={handleChange("password")}
           value={password}
           type="password"
-          className="form-control"
+          className="form-control inp"
         />
       </div>
       <br></br>

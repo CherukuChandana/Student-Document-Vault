@@ -12,7 +12,6 @@ import Forgot from "./auth/ForgotPwd";
 import Reset from "./auth/ResetPwd";
 import Dashboard from "./core/Dashboard";
 import MuiTable from "./core/AdminDashboard";
-// import InputFileUpload from "./core/InputFileUpload";
 
 const MyRoutes = () => {
   return (
@@ -22,7 +21,6 @@ const MyRoutes = () => {
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/signin" exact element={<Signin />} />
         <Route path="/auth/activate/:token" exact element={<Activate />} />
-        {/* <Route path="/auth/activate/:token" exact Component={Activate} /> */}
         <Route
           path="/private"
           element={

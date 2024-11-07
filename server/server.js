@@ -34,9 +34,3 @@ app.listen(port, () => {
 });
 
 // if changes are made to .env file, then we need to restart the server by - npm start
-
-/*
-  Chandana - chandu
-  Gayathri - gayathri
-21B81A1214@cvr.ac.in
-*/

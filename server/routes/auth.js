@@ -33,6 +33,5 @@ router.put(
   runValidation,
   resetPassword
 );
-// router.get("/upload", upload);
 
 module.exports = router;

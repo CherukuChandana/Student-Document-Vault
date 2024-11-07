@@ -102,9 +102,6 @@ exports.accountActivation = (req, res) => {
         }
         const { name, email, password } = jwt.decode(token);
         const rollNo = email.substring(0, 10);
-        // console.log("######################################");
-        // console.log(rollNo);
-        // console.log("######################################");
         const user = new User({ name, email, password, rollNo });
 
         const savedUser = user
